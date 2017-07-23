@@ -4,3 +4,9 @@ coverage/
 npm-debug.log
 .ideatest/
 test-results.xml
+
+# Idea
+.idea
+
+# do not store package lock since it's contains plain urls
+.package-lock.json
