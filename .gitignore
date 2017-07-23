@@ -9,4 +9,4 @@ test-results.xml
 .idea
 
 # do not store package lock since it's contains plain urls
-.package-lock.json
+package-lock.json

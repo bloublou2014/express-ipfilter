@@ -6,7 +6,7 @@ This package provides easy IP based access control. This can be achieved either 
 [![Circle CI](https://circleci.com/gh/baminteractive/express-ipfilter/tree/master.svg?style=svg)](https://circleci.com/gh/baminteractive/express-ipfilter/tree/master)
 
 ## Version
-0.3.1
+0.4.0
 
 ## Installation
 
@@ -71,6 +71,9 @@ app.use(ipfilter(ips, {mode: 'allow'}));
 
 module.exports = app;
 ```
+IP Range must have 2 elements : a start and a end. Otherwise an Error is throwned :
+- at config time if ips are statics
+- at runtime if ips is a function
 
 Using a function to get Ips:
 
@@ -142,7 +145,7 @@ See the `CONTRIBUTING.MD` document for more information on contributing.
 
 ### Building from source
 
-You can run `grunt` to build the source.  This will run `eslint` and `babel` against `src/ipfilter.js`.
+You can run `grunt` to build the source.  This will run `eslint` and `babel` against `src/ipFilter.js`.
 
 There is an included `example` project that will load the package from the local build for testing.
 
@@ -155,6 +158,17 @@ Run tests by using
 This will run `eslint`,`babel`, and `mocha` and output coverage data into `coverage`.  Any pull request you submit needs to be accompanied by a test.
 
 ## Changelog
+
+0.4.0
+ * Update all dependencies
+ * rename lib/ipfilter.js to lib/ipFilter.js to match project naming (like deniedError.js)
+ * Force strict comparison !== or ===
+ * Add constant in code instead of plain text
+ * Optimize settings to avoid costly string comparison at runtime
+ * Optimize testing function to avoid code redundancy (comparison of setting.mode)
+ * Throw Error if IP Range has only one element
+ * Throw Error if ip constraint is not String or Array
+ * Add .editorConfig
 
 0.3.1
  * Fixes critical bug that allowed access when ips is empty and mode == 'allow'.

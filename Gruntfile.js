@@ -1,4 +1,4 @@
-module.exports = function(grunt){
+module.exports = function (grunt) {
   'use strict';
 
   require('load-grunt-tasks')(grunt);
@@ -15,7 +15,7 @@ module.exports = function(grunt){
     copy: {
       ci: {
         files: [
-          { expand: true, src: 'test-results.xml', dest: process.env.CIRCLE_TEST_REPORTS+'/mocha/' }
+          {expand: true, src: 'test-results.xml', dest: process.env.CIRCLE_TEST_REPORTS + '/mocha/'}
         ]
       }
     },
@@ -31,7 +31,7 @@ module.exports = function(grunt){
       },
       dist: {
         files: {
-          'lib/ipfilter.js': 'src/ipfilter.js',
+          'lib/ipfilter.js': 'src/ipFilter.js',
           'lib/deniedError.js': 'src/deniedError.js'
         }
       }
@@ -64,7 +64,7 @@ module.exports = function(grunt){
     },
   });
 
-  grunt.registerTask('default', ['checkDependencies','eslint','babel:dist']);
-  grunt.registerTask('test', ['checkDependencies','eslint','babel','mocha_istanbul']);
-  grunt.registerTask('ci', ['checkDependencies','eslint','babel','mochaTest:ci','mocha_istanbul:ci','copy:ci']);
+  grunt.registerTask('default', ['checkDependencies', 'eslint', 'babel:dist']);
+  grunt.registerTask('test', ['checkDependencies', 'eslint', 'babel', 'mocha_istanbul']);
+  grunt.registerTask('ci', ['checkDependencies', 'eslint', 'babel', 'mochaTest:ci', 'mocha_istanbul:ci', 'copy:ci']);
 };

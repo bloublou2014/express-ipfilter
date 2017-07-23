@@ -1,4 +1,4 @@
 module.exports = {
-  IpFilter: require('./lib/ipfilter'),
+  IpFilter: require('./lib/ipFilter'),
   IpDeniedError: require('./lib/deniedError')
 };
